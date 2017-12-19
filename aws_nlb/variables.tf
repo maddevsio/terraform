@@ -22,6 +22,10 @@ variable "port" {
   default     = 8080
 }
 
+variable "target_group_arn" {
+  description = "Target Group Arn for default route action"
+}
+
 variable "sns_topic_arn" {
   description = "SNS topic arn to use in alarms"
 }

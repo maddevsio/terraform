@@ -1,3 +1,5 @@
+variable "vpc_id" {}
+
 variable "name" {
   default = "nlb"
 }
@@ -22,8 +24,14 @@ variable "port" {
   default     = 8080
 }
 
-variable "target_group_arn" {
-  description = "Target Group Arn for default route action"
+variable "target_port" {
+  description = "Instance port to proxy"
+  default     = 8080
+}
+
+variable "deregistration_delay" {
+  description = "Instance deregistration delay"
+  default     = 60
 }
 
 variable "sns_topic_arn" {

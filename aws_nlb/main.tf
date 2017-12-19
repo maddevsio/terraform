@@ -17,3 +17,22 @@ resource "aws_lb_listener" "main" {
     type             = "forward"
   }
 }
+
+resource "aws_lb_target_group" "main" {
+  name                 = "${var.name}"
+  port                 = "${var.target_port}"
+  protocol             = "TCP"
+  vpc_id               = "${var.vpc_id}"
+  deregistration_delay = "${var.deregistration_delay}"
+
+  health_check {
+    healthy_threshold   = 5
+    interval            = 30
+    timeout             = 10
+    unhealthy_threshold = 5
+    port                = "${var.target_port}"
+    protocol            = "TCP"
+  }
+
+  tags = "${merge(var.tags, map("Name", format("%s", var.name)))}"
+}

@@ -8,7 +8,7 @@ Usage
 
 ```hcl
 module "nlb" {
-  source = "https://github.com/maddevsio/terraform/tree/master/aws_nlb"
+  source = "git::https://github.com/maddevsio/terraform/tree/master/aws_nlb"
 
   name             = "example-nlb"
   subnets          = ["subnet-13579", "subnet-24680"]

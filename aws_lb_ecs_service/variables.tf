@@ -16,7 +16,7 @@ variable "task_definition" {
 
 variable "task_role_arn" {
   description = "A role assumed by tasks"
-  default = ""
+  default     = ""
 }
 
 variable "target_group_arn" {
@@ -25,17 +25,17 @@ variable "target_group_arn" {
 
 variable "desired_count" {
   description = "A number of tasks for the service"
-  default = "1"
+  default     = 1
 }
 
 variable "container_port" {
   description = "Port number of the service/containers"
-  default = "8080"
+  default     = 8080
 }
 
 variable "service_memory" {
   description = "Memory limit for the service"
-  default = "200"
+  default     = 200
 }
 
 variable "alarm_cpu_threshold" {

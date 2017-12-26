@@ -29,7 +29,13 @@ resource "aws_autoscaling_group" "main" {
   } 
 */
 
-  tags = "${merge(var.tags, map("Name", format("%s", var.name)))}"
+  tags = ["${concat(
+    list(
+      map("key", "Name", "value", "${format("%s", var.name)}", "propagate_at_launch", true)
+    ),
+    var.tags
+  )}"]
+
 }
 
 resource "aws_launch_configuration" "main" {

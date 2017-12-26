@@ -71,6 +71,6 @@ variable "protect_from_scale_in" {
 variable "sns_topic_arn" {}
 
 variable "tags" {
-  description = "A map of tags to add to all resources"
-  default     = {}
+  description = "A list of maps of tags to add to all resources"
+  default     = []
 }

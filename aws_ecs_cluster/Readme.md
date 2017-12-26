@@ -21,11 +21,19 @@ module "ecs-clister" {
   ebs_optimized      = true
   docker_volume_size = 50
   security_group_ids = [${var.security_group_ids}]
-  sns_topic_arn = "${var.sns_topic_arn}"
+  sns_topic_arn      = "${var.sns_topic_arn}"
 
-  tags {
-    Terraform   = "true"
-    Environment = "${terraform.workspace}"
-  }
+  tags = [
+    {
+      key                 = "Terraform"
+      value               = "true"
+      propagate_at_launch = true
+    },
+    {
+      key                 = "Environment"
+      value               = "${terraform.workspace}"
+      propagate_at_launch = true
+    }
+  ]
 }
 ```

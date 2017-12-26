@@ -8,7 +8,7 @@ resource "aws_cloudwatch_log_group" "main" {
 
 resource "aws_autoscaling_group" "main" {
   name                  = "${var.name}"
-  vpc_zone_identifier   = ["${var.subnet_id}"]
+  vpc_zone_identifier   = ["${var.subnets}"]
   min_size              = "${var.asg_min}"
   max_size              = "${var.asg_max}"
   desired_capacity      = "${var.asg_desired}"

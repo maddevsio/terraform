@@ -46,7 +46,7 @@ variable "heartbeat_timeout" {
   default     = "180"
 }
 
-variable "subnet_id" {
+variable "subnets" {
   description = "A list of subnets"
   type        = "list"
 }

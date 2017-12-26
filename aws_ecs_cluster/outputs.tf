@@ -7,13 +7,13 @@ output "cluster_id" {
 }
 
 output "log_group_name" {
-  value = "${aws_cloudwatch_log_group.ecs.name}"
+  value = "${aws_cloudwatch_log_group.main.name}"
 }
 
 output "group_name" {
-  value = "${aws_autoscaling_group.ecs.name}"
+  value = "${aws_autoscaling_group.main.name}"
 }
 
 output "log_group_arn" {
-  value = "${aws_cloudwatch_log_group.ecs.arn}"
+  value = "${aws_cloudwatch_log_group.main.arn}"
 }

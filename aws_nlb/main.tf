@@ -28,11 +28,14 @@ resource "aws_lb_target_group" "main" {
   health_check {
     healthy_threshold   = 5
     interval            = 30
-    //timeout             = 10
     unhealthy_threshold = 5
     port                = "${var.target_port}"
     protocol            = "TCP"
   }
+
+  depends_on = [
+    "aws_lb.main"
+  ]
 
   tags = "${merge(var.tags, map("Name", format("%s", var.name)))}"
 }

@@ -33,11 +33,6 @@ variable "container_port" {
   default     = 8080
 }
 
-variable "service_memory" {
-  description = "Memory limit for the service"
-  default     = 200
-}
-
 variable "alarm_cpu_threshold" {
   default = 70
 }

@@ -23,8 +23,6 @@ resource "aws_ecs_service" "main" {
     create_before_destroy = true
     ignore_changes        = ["desired_count"]
   }
-
-  depends_on = ["aws_iam_role_policy.main"]
 }
 
 resource "aws_cloudwatch_metric_alarm" "ecs_service_cpu_high" {

@@ -13,7 +13,7 @@ resource "aws_lb_listener" "main" {
   protocol          = "TCP"
 
   default_action {
-    target_group_arn = "${var.target_group_arn}"
+    target_group_arn = "${aws_lb_target_group.main.arn}"
     type             = "forward"
   }
 }

@@ -28,7 +28,7 @@ resource "aws_lb_target_group" "main" {
   health_check {
     healthy_threshold   = 5
     interval            = 30
-    timeout             = 10
+    //timeout             = 10
     unhealthy_threshold = 5
     port                = "${var.target_port}"
     protocol            = "TCP"

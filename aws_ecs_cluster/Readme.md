@@ -7,7 +7,7 @@ Usage
 -----
 
 ```hcl
-module "ecs-clister" {
+module "ecs-cluster" {
   source = "git::https://github.com/maddevsio/terraform//aws_ecs_cluster"
 
   name               = "example-ecs"

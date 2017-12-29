@@ -1,0 +1,2 @@
+"<db_user>" "md5xxx"
+"<stats_user>" "md5xxx"

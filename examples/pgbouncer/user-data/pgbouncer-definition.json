@@ -1,0 +1,33 @@
+[
+  {
+    "memory": ${memory},
+    "networkMode": "host",
+    "portMappings": [
+      {
+        "hostPort": ${host_port},
+        "containerPort": ${container_port},
+        "protocol": "tcp"
+      }
+    ],
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "${log_group_name}",
+            "awslogs-stream-prefix": "${log_group_stream}",
+            "awslogs-region": "${log_group_region}"
+        }
+    },
+    "hostname": "${container_name}",
+    "essential": true,
+    "name": "${container_name}",
+    "ulimits": [
+      {
+        "softLimit": 12000,
+        "hardLimit": 12000,
+        "name": "nofile"
+      }
+    ],
+    "image": "${image_url}",
+    "cpu": 0
+  }
+]

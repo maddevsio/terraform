@@ -11,8 +11,5 @@ data "aws_ami" "main" {
     values = ["hvm"]
   }
 
-  filter {
-    name   = "owner-alias"
-    values = "${var.ami_owner}"
-  }
+  owners = "${var.ami_owner}"
 }

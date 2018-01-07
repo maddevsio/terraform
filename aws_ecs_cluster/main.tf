@@ -35,7 +35,6 @@ resource "aws_autoscaling_group" "main" {
     ),
     var.tags
   )}"]
-
 }
 
 resource "aws_launch_configuration" "main" {

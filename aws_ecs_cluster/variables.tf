@@ -11,6 +11,18 @@ variable "instance_type" {
   default     = "t2.small"
 }
 
+variable "ami_name" {
+  description = "ECS Instance ami name filter"
+  type        = "list"
+  default     = ["amzn-ami-*-x86_64-gp2"]
+}
+
+variable "ami_owner" {
+  description = "ECS Instance ami owner"
+  type        = "list"
+  default     = ["amazon"]
+}
+
 variable "asg_min" {
   description = "Minimem autoscaling group size"
   default     = 0

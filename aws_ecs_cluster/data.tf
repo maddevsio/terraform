@@ -11,7 +11,7 @@ data "aws_ami" "main" {
 
   filter {
     name   = "name"
-    values = ["amzn-ami-*-x86_64-gp2"]
+    values = "${var.ami_name}"
   }
 
   filter {
@@ -21,6 +21,6 @@ data "aws_ami" "main" {
 
   filter {
     name   = "owner-alias"
-    values = ["amazon"]
+    values = "${var.ami_owner}"
   }
 }

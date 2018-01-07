@@ -47,7 +47,13 @@ resource "aws_launch_configuration" "main" {
   associate_public_ip_address = "${var.public_ip}"
   ebs_optimized               = "${var.ebs_optimized}"
 
-  user_data = "${data.template_file.main.rendered}"
+  user_data = <<EOF
+{
+  "Cluster":  "${aws_ecs_cluster.main.name}",
+  "TaskIAMRoleEnabled": true,
+  "TaskIAMRoleEnabledForNetworkHost": true
+}
+EOF
 
   root_block_device {
     volume_size           = "10"

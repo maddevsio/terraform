@@ -14,13 +14,13 @@ variable "instance_type" {
 variable "ami_name" {
   description = "ECS Instance ami name filter"
   type        = "list"
-  default     = ["amzn-ami-*-x86_64-gp2"]
+  default     = ["linuxkit*"]
 }
 
 variable "ami_owner" {
   description = "ECS Instance ami owner"
   type        = "list"
-  default     = ["amazon"]
+  default     = ["self"]
 }
 
 variable "asg_min" {

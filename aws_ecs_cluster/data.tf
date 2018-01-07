@@ -1,11 +1,3 @@
-data "template_file" "main" {
-  template = "${file("${path.module}/user-data/instance.tpl")}"
-
-  vars {
-    cluster_name = "${aws_ecs_cluster.main.name}"
-  }
-}
-
 data "aws_ami" "main" {
   most_recent = true
 

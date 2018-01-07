@@ -34,7 +34,7 @@ resource "aws_lb_target_group" "main" {
   }
 
   depends_on = [
-    "aws_lb.main"
+    "aws_lb.main",
   ]
 
   tags = "${merge(var.tags, map("Name", format("%s", var.name)))}"

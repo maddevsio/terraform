@@ -1,7 +1,7 @@
 resource "aws_iam_role" "main" {
   name = "${var.name}-ecs-service-role"
 
-   assume_role_policy = <<EOF
+  assume_role_policy = <<EOF
 {
   "Version": "2008-10-17",
   "Statement": [

@@ -1,6 +1,6 @@
 resource "null_resource" "build_linuxkit_image" {
   provisioner "local-exec" {
-    command = "linuxkit build -dir /tmp -format aws -name ${var.name} -size 160M files/ecs.yml"
+    command = "linuxkit build -pull -dir /tmp -format aws -name ${var.name} -size 160M files/ecs.yml"
   }
 }
 

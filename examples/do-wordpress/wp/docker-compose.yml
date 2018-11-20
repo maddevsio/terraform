@@ -1,0 +1,39 @@
+version: '3.3'
+ 
+networks:
+  wp-proxy:
+    driver: bridge
+  wp-db:
+    driver: bridge
+ 
+volumes:
+  db-mysql:
+ 
+services:
+  wp:
+    restart: always
+    image: wordpress:4.9
+    ports:
+      - 80:80
+    environment:
+      WORDPRESS_DB_PASSWORD : wordpress
+      WORDPRESS_DB_HOST     : db:3306
+      WORDPRESS_DB_USER     : wordpress
+      WORDPRESS_DB_NAME     : wordpress
+    networks:
+      - wp-db
+    depends_on:
+      - db
+ 
+  db:
+    restart: always
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD   : root_password
+      MYSQL_PASSWORD        : wordpress
+      MYSQL_USER            : wordpress
+      MYSQL_DATABASE        : wordpress
+    volumes:
+      - db-mysql:/var/lib/mysql
+    networks:
+      - wp-db
